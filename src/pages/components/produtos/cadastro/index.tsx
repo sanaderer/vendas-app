@@ -4,6 +4,14 @@ import { useProductService } from 'app/services'
 import { Product } from 'app/models/product'
 import { bigDecimalConverter} from 'app/util/money'
 import { Alert } from '/src/pages/components/commom/message'
+import * as yup from 'yup'
+
+const validationSchema = yup.object().shape({
+    sku: yup.string().required(),
+    name: yup.string().required(),
+    description: yup.string().required(),
+    price: yup.number().required(),    
+})
 
 export const CadastroProdutos: React.FC = () => {
 
