@@ -3,6 +3,7 @@ import { Layout, Input, Message} from '/src/pages/components'
 import { useProductService } from 'app/services'
 import { Product } from 'app/models/product'
 import { bigDecimalConverter} from 'app/util/money'
+import { Alert } from '/src/pages/components/commom/message'
 
 export const CadastroProdutos: React.FC = () => {
 
@@ -13,6 +14,7 @@ export const CadastroProdutos: React.FC = () => {
     const [ description, setDescription ] = useState<string>('')
     const [ id, setId] = useState<string>('')
     const [register, setRegister ] = useState<string>('')
+    const [ messages, setMessages] = useState<Array<Alert>>([])
 
     const submit = () => {
         const product: Product = {
@@ -26,7 +28,11 @@ export const CadastroProdutos: React.FC = () => {
         if(id) {
             service
                 .update(product)
-                .then(response => console.log("Atualizado"))
+                .then(response => {
+                    setMessages([{
+                        type: "success", text: "Produto atualizado com sucesso!"
+                }])
+                })
 
         }else{
 
@@ -35,13 +41,16 @@ export const CadastroProdutos: React.FC = () => {
             .then(productResponse => {
                 setId(productResponse.id)
                 setRegister(productResponse.register)
+                setMessages([{
+                    type: "success", text: "Produto salvo com sucesso!"
+            }])
             })
 
         }
     }
 
     return (
-        <Layout tittle="Produtos">
+        <Layout tittle="Produtos" messages={messages}>
             {id &&  
                 <div className="columns">
                     <Input label="Código: *" 
