@@ -74,7 +74,8 @@ export const CadastroProdutos: React.FC = () => {
                     onChange={setPrice}
                     value={price}
                     id="inputPreco"
-                    placeholder="Digite o preço do produto"                
+                    placeholder="Digite o preço do produto"
+                    currency                
                     />    
             </div>
 
