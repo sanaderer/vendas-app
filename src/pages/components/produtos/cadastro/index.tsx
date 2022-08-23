@@ -15,17 +15,28 @@ export const CadastroProdutos: React.FC = () => {
 
     const submit = () => {
         const product: Product = {
+            id,
             sku, 
             price: parseFloat(price), 
             name, 
             description
         }
+
+        if(id) {
+            service
+                .update(product)
+                .then(response => console.log("Atualizado"))
+
+        }else{
+
         service
-        .save(product)
-        .then(productResponse => {
-            setId(productResponse.id)
-            setRegister(productResponse.register)
-        })
+            .save(product)
+            .then(productResponse => {
+                setId(productResponse.id)
+                setRegister(productResponse.register)
+            })
+
+        }
     }
 
     return (
