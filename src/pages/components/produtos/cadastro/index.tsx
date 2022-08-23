@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Layout, Input} from '/src/pages/components'
+import { Layout, Input, Message} from '/src/pages/components'
 import { useProductService } from 'app/services'
 import { Product } from 'app/models/product'
+import { bigDecimalConverter} from 'app/util/money'
 
 export const CadastroProdutos: React.FC = () => {
 
@@ -17,7 +18,7 @@ export const CadastroProdutos: React.FC = () => {
         const product: Product = {
             id,
             sku, 
-            price: parseFloat(price), 
+            price: bigDecimalConverter(price), 
             name, 
             description
         }
