@@ -5,6 +5,7 @@ import { Product } from 'app/models/product'
 import { bigDecimalConverter} from 'app/util/money'
 import { Alert } from '/src/pages/components/commom/message'
 import * as yup from 'yup'
+import { stringify } from 'querystring'
 
 const validationSchema = yup.object().shape({
     sku: yup.string().required(),
@@ -33,29 +34,39 @@ export const CadastroProdutos: React.FC = () => {
             description
         }
 
-        if(id) {
+        validationSchema.validate(product).then(obj => {
+
+            if(id) {
+                service
+                    .update(product)
+                    .then(response => {
+                        setMessages([{
+                            type: "success", text: "Produto atualizado com sucesso!"
+                    }])
+                    })
+    
+            }else{
+    
             service
-                .update(product)
-                .then(response => {
+                .save(product)
+                .then(productResponse => {
+                    setId(productResponse.id)
+                    setRegister(productResponse.register)
                     setMessages([{
-                        type: "success", text: "Produto atualizado com sucesso!"
+                        type: "success", text: "Produto salvo com sucesso!"
                 }])
-                })
-
-        }else{
-
-        service
-            .save(product)
-            .then(productResponse => {
-                setId(productResponse.id)
-                setRegister(productResponse.register)
-                setMessages([{
-                    type: "success", text: "Produto salvo com sucesso!"
-            }])
-            })
-
+                })    
+            }
         }
-    }
+    ,).catch(err => {
+        const field = err.ppath;
+        const message = err.message;
+
+        setMessages([
+            { type: "danger", field, text: message}
+        ])
+    })}
+
 
     return (
         <Layout tittle="Produtos" messages={messages}>
