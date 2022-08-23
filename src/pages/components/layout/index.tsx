@@ -17,7 +17,7 @@ export const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
                         <div className="card">
                             <div className="card-header">
                                 <p className="card-header-tittle">
-                                    {props.titulo}
+                                    {props.tittle}
                                 </p>
                             </div>
                             <div className="card-content">
