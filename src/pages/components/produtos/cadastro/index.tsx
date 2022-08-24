@@ -6,6 +6,7 @@ import { Product } from '../../../../app/models/products'
 import { bigDecimalConverter} from 'app/util/money'
 import { Alert } from '../../common/message'
 import * as yup from 'yup'
+import Link from 'next/link'
 
 const msgRequiredField = "Campo Obrigatório";
 
@@ -153,12 +154,14 @@ export const CadastroProdutos: React.FC = () => {
 
             <div className="field is-grouped">
                 <div className="control">
-                    <button onClick={submit} className="button is-link">
+                    <button onClick={submit} className="button is-black">
                         {id ? "Atualizar" : "Salvar" }
                     </button>
                 </div>
                 <div className="control">
-                    <button className="button is-link is-light">Voltar</button>
+                    <Link href="/consultas/produtos">
+                    <button className="button is-light">Voltar</button>
+                    </Link>
                 </div>
             </div>
 
