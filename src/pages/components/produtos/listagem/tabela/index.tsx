@@ -24,7 +24,13 @@ export const ProductTable: React.FC<ProductsTableProps> = ({
             </thead>
             <tbody>
                 {
-                    products?.map( product => <ProductRow onDelete={onDelete} onEdit={onEdit} key={product.id} product={product} />)
+                    products?.map( product => (
+                            <ProductRow onDelete={onDelete} 
+                                        onEdit={onEdit}     
+                                        key={product.id} 
+                                        product={product} />
+                        )
+                    )
                 }
             </tbody>
         </table>

@@ -11,6 +11,14 @@ export const ProductsListing: React.FC = () => {
     const { data: result, error } = useSWR<AxiosResponse<Product[]>>
                     ('api/products', url => httpClient.get(url))
 
+    const edit = (product: Product) => {
+        console.log(product)
+    }
+
+    const Delete = (product: Product) => {
+        console.log(product)
+    }
+
     return (
         <Layout title="Produtos" >
             <Link href= "/cadastros/produtos">
@@ -18,7 +26,7 @@ export const ProductsListing: React.FC = () => {
             </Link>
             <br /><br />
             <Loader show={!result} />
-            <ProductTable products={result?.data || []} />
+            <ProductTable onEdit={edit} onDelete={Delete} products={result?.data || []} />
             
         </Layout>
 
