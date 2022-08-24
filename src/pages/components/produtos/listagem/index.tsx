@@ -5,6 +5,7 @@ import { Product} from 'app/models/products'
 import useSWR from 'swr'
 import { httpClient } from 'app/http'
 import { AxiosResponse } from 'axios'
+import { Loader } from '../../common/loader'
 
 export const ProductsListing: React.FC = () => {
 
