@@ -56,9 +56,9 @@ const ProductRow: React.FC<ProductRowProps> = ({
             <td>{ product.price }</td>
             <td>
                 <button onClick={e => onEdit(product) } 
-                className="button is-black is-small"> Editar  </button>
+                className="button is-black is-small m-1"> Editar  </button>
                 <button onClick={e => onDelete(product) } 
-                className="button is-light is-small"> Deletar </button>
+                className="button is-light is-small m-1"> Deletar </button>
             </td>
         </tr>
     )
