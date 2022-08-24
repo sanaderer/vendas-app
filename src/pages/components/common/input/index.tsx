@@ -3,10 +3,11 @@ import { formatReal } from 'app/util/money'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
     id: string;
-    onChange?: (value) => void;
+    onChange?: (value: any) => void;
     label: string;
     columnClasses?: string;
     currency?: boolean;
+    error?: string;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -15,10 +16,11 @@ export const Input: React.FC<InputProps> = ({
     columnClasses,
     id,
     currency,
+    error,
     ...inputProps
 }: InputProps) => {
 
-    const onInputChange = (event) => {
+    const onInputChange = (event: { target: { value: any; }; }) => {
 
         let value = event.target.value;
 
@@ -40,6 +42,9 @@ export const Input: React.FC<InputProps> = ({
                 <input className="input" 
                     id={id} {...inputProps}
                     onChange={onInputChange}/>
+                {error && 
+                    <p className="help is-danger">{ error }</p>
+                }
             </div>
         </div>
     </>

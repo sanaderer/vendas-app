@@ -1,3 +1,3 @@
-import { CadastroProdutos } from '/src/pages/components'
+import { CadastroProdutos } from '../../components'
 
 export default CadastroProdutos

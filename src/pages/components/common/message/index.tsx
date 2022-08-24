@@ -6,7 +6,7 @@ interface MessageProps {
 
 export interface Alert {
     type: string;
-    field: string;
+    field?: string;
     text: string;
 }
 
