@@ -2,7 +2,11 @@ interface LoaderProps {
     show: boolean;
 }
 
-export const Loader: React.FC = () => {
+export const Loader: React.FC = ({ show }) => {
+
+    if(!show){
+        return <></>
+    }
     return (
         <div id="loader" style ={{
             background: 'rgba(255, 255, 255, 0.5)',
