@@ -1,7 +1,9 @@
+import { Layout } from '../../../components'
+
 export const CadastroCliente: React.FC = () => {
     return (
-        <div>
+        <Layout title="Clientes">
             Cadastro!
-        </div>
+        </Layout>
     )
 }
