@@ -1,8 +1,10 @@
 import { InputHTMLAttributes } from 'react'
 import { formatReal } from 'app/util/money'
 import { FormatUtils } from '@4us-dev/utils'
+import { format } from 'path';
 
 const formatUtils = new FormatUtils();
+
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
     id: string;
@@ -64,5 +66,11 @@ export const InputMoney: React.FC<InputProps> = (props: InputProps) => {
 export const InputCPF: React.FC<InputProps> = (props: InputProps) => {
     return (
         <Input {...props} formatter={formatUtils.formatCPF}/>
+    )
+}
+
+export const InputNumber: React.FC<InputProps> = (props: InputProps) => {
+    return (
+        <Input {...props} formatter={formatUtils.formatPhone}/>
     )
 }
