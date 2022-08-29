@@ -1,6 +1,6 @@
 import { Cliente } from 'app/models/clientes'
 import { useFormik } from 'formik'
-import { Input } from '../../../components'
+import { Input, InputCPF } from 'components'
 
 interface ClientFormProps{
     cliente: Cliente;
@@ -58,7 +58,7 @@ export const ClienteForm: React.FC<ClientFormProps> = ({
                         value={formik.values.name}/>
             </div>
             <div className="columns">
-                <Input  id="cpf" 
+                <InputCPF  id="cpf" 
                         name="cpf" 
                         label="CPF: *"
                         autoComplete="off"

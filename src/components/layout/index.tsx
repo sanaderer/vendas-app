@@ -1,7 +1,7 @@
 import { Menu } from './menu'
 import { ReactNode } from 'react'
-import { Message } from '../../components'
-import { Alert } from '../../components/common/message'
+import { Message } from '..'
+import { Alert } from '../common/message'
 
 interface LayoutProps {
     title?: string;

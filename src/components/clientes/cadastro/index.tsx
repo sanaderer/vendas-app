@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layout } from '../../../components'
+import { Layout } from '../..'
 import { ClienteForm } from './form'
 import { Cliente } from 'app/models/clientes'
 

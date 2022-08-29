@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Layout, Loader } from '../../../components'
+import { Layout, Loader } from '../..'
 import Link from 'next/link'
 import { ProductTable } from './tabela'
 import { Product} from 'app/models/products'
@@ -9,7 +9,7 @@ import { AxiosResponse } from 'axios'
 import Router from 'next/router'
 import { useProductService } from 'app/services'
 import { useState } from 'react'
-import { Alert } from 'pages/components/common/message'
+import { Alert } from 'components/common/message'
 
 export const ProductsListing: React.FC = () => {
 

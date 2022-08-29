@@ -1,3 +1,3 @@
-import { ProductsListing } from '../../components'
+import { ProductsListing } from '../../../components'
 
 export default ProductsListing
