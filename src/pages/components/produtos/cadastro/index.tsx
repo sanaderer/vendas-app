@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Layout } from '../../layout'
-import { Input, Message } from '../../common'
+import { Input, InputMoney } from '../../common'
 import { useProductService } from 'app/services'
 import { Product } from '../../../../app/models/products'
 import { bigDecimalConverter, formatReal} from 'app/util/money'
@@ -105,7 +105,7 @@ export const CadastroProdutos: React.FC = () => {
                 <div className="columns">
                     <Input label="Código: *" 
                         columnClasses="is-half"
-                        onChange={setSku}
+                        onChange={e => setSku(e.target.value)}
                         value={id}
                         id="inputId"     
                         disabled={true}        
@@ -123,20 +123,19 @@ export const CadastroProdutos: React.FC = () => {
             <div className="columns">
                 <Input label="SKU: *" 
                     columnClasses="is-half"
-                    onChange={setSku}
+                    onChange={ e => setSku(e.target.value)}
                     value={sku}
                     id="inputSku"
                     placeholder="Digite o SKU do produto" 
                     error={errors.sku}               
                     />
 
-                <Input label="Preço: *" 
+                <InputMoney label="Preço: *" 
                     columnClasses="is-half"
-                    onChange={setPrice}
+                    onChange={ e => setPrice(e.target.value)}
                     value={price}
                     id="inputPreco"
                     placeholder="Digite o preço do produto"
-                    currency 
                     maxLength={16} 
                     error={errors.price}              
                     />    
@@ -145,7 +144,7 @@ export const CadastroProdutos: React.FC = () => {
             <div className="columns">
                 <Input label="Nome: *" 
                     columnClasses="is-full"
-                    onChange={setName}
+                    onChange={ e => setName(e.target.value)}
                     value={name}
                     id="inputNome"
                     placeholder="Digite o nome do produto"         
